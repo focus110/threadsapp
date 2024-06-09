@@ -9,9 +9,11 @@ import "../globals.css"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Next.js",
-  description: "Thread application",
+  title: "Threads",
+  description: "A social platform for communities",
 };
+
+
 
 export default function RootLayout({
   children,
