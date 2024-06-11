@@ -1,7 +1,7 @@
 import AccountProfile from "@/components/forms/AccountProfile";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
-async function page() {
+async function Page() {
   const user = await currentUser();
 
   const userInfo = {};
@@ -12,8 +12,9 @@ async function page() {
     username: userInfo?.username || user?.username,
     name: userInfo?.name || user?.firstName || "",
     bio: userInfo?.bio || "",
-    image: userInfo?.image || user?.imagesUrl,
+    image: userInfo?.image || user?.imageUrl,
   };
+  
 
   return (
     <main className="mx-auto flex max-w-3xl flex-col justify-start px-10 py-20">
@@ -28,4 +29,4 @@ async function page() {
     </main>
   );
 }
-export default page;
+export default Page;
